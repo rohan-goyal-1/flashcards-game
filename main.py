@@ -26,8 +26,16 @@ def ask_question_with_timeout (question, answer, time_limit):
         return False
 
 def main ():
-    list1 = read_file("questions")
-    list2 = read_file("answers")
+    switch = input("Enter 1 to flip questions and answers, anything else if not: ")
+    
+    list1 = []
+    list2 = []
+    if switch == "1":
+        list2 = read_file("questions")
+        list1 = read_file("answers")
+    else:
+        list1 = read_file("questions")
+        list2 = read_file("answers")
 
     if len(list1) != len(list2):
         raise ValueError("Files do not have the same number of lines")
@@ -49,7 +57,7 @@ def main ():
                 break
             elif not result:
                 print(f"Wrong. Correct answer is {top[1]}.")
-                temp.insert(4, top)
+                # temp.insert(4, top)
             else:
                 print("Correct.")
 
