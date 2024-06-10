@@ -17,7 +17,7 @@ def ask_question_with_timeout (question, answer, time_limit):
         signal.alarm(0)
         if user_answer == "stop":
             return "stop"
-        elif user_answer != answer:
+        elif user_answer.casefold() != answer.casefold():
             return False
         else:
             return True
